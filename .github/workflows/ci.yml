@@ -32,3 +32,12 @@ jobs:
             sleep 2
           done
           exit 1
+  ansible-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run Ansible lint
+        uses: ansible/ansible-lint-action@v6
+        with:
+          path: ansible_iac/setup_env.yml
